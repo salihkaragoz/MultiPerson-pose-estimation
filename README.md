@@ -1,2 +1,3 @@
 # MultiPerson-pose-estimation
-This is the proposal network for MultiPerson Pose Estimation.
+This is the repo for MultiPerson Pose Estimation.
+Hey dude whatsapp
