@@ -22,8 +22,9 @@ keypoints = zip(det, data)
 
 # combine them
 result = []
-ann = dict.fromkeys(['image_id', 'category_id', 'keypoints', 'score'])
+
 for k in keypoints:
+    ann = dict.fromkeys(['image_id', 'category_id', 'keypoints', 'score'])
     ann['image_id'] = k[0][0]
     ann['score'] = k[0][1]
     ann['category_id'] = 1
