@@ -1,5 +1,5 @@
 # MultiPerson-pose-estimation
 
-@mkocabas - Muhammed Kocabas Distinguished Researcher at METU   
+@mkocabas - Muhammed Kocabas Just another human :) 
 
 @salihkaragoz - Salih Karagoz Researcher 
