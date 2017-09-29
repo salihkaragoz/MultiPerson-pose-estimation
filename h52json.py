@@ -19,7 +19,20 @@ with open(txt_file, 'r') as f:
     scores = map(float, X[1])
     det = zip(ids,scores)
 keypoints = zip(det, data)
-
+# if test-dev exclude test-challenge
+if sys.argv[3] == 'dev':
+    print 'yes'
+    f = open('image_info_test-dev2017.json')
+    data = json.loads(f.read())
+    idxs = []
+    for d in data['images']:
+    	idxs.append(int(d['id']))
+    keypoints_dev = []
+    for k in keypoints:
+    	if k[0][0] in idxs:
+    		keypoints_dev.append(k)
+    keypoints = keypoints_dev
+    
 # combine them
 result = []
 
