@@ -39,10 +39,7 @@ opener = urllib.request.URLopener()
 print("Has downloaded")
 tar_file = tarfile.open(MODEL_FILE)
 print("where is the error")
-#for file in tar_file.getmembers():
-#  file_name = os.path.basename(file.name)
-#  if 'frozen_inference_graph.pb' in file_name:
-#    tar_file.extract(file, os.getcwd())
+
 
 file_name = os.path.basename(MODEL_NAME)
 
@@ -185,11 +182,7 @@ with detection_graph.as_default():
       #print(height)
       b = scores[0][0]
 
-      #print(scores[0][0])
-      #print(boxes[0][0])
-      #print(classes)
-      #print(num[0])
-      #print("that did it.")
+
       human_id = 1
       
       boxes,scores,classes,_ = detect(detection_graph,
@@ -202,23 +195,15 @@ with detection_graph.as_default():
 
 
       boxes, scores, classes = filter_boxes(min_score, boxes, scores, classes, [human_id])
-      # Visualizatio  of the results of a detection.
-      #print("iste skorlar")
-      #print("scores" + str(scores[0]))
-      #print(boxes)
+
 
 
       box_coords =to_image_coords(boxes, height, width)
       score_idx = 0 
-      for score in scores:
-          #print(score)
-          #print(box_coords[score_idx])
+      for score in scores: 
           box_cords = str(box_coords[score_idx])
           box_cords = box_cords[2:-1]
-          #if(box_cords[0] == " "):
-          #  box_cords = box_cords[1:]
-            #if (box_cords[0] == " "):
-            #  box_cords = box_cords[1:]
+
 
           box_cords = box_cords.replace("   ", " ")
           box_cords = box_cords.replace("  ", " ")
@@ -231,46 +216,6 @@ with detection_graph.as_default():
            
           score_idx = score_idx + 1
           #print("end")
-
-      #lime = line.split(" ")
-      #if(lime[2] == "0."):
-      #    lime[2] == "0"
-      #    line = str(lime) 
-      #box_coords = str(box_coords[0])
-      #box_coords = box_coords[2:-1]
-      #if(box_coords[0] == " "):
-      #    box_coords = box_coords[1:]
-      #    if (box_coords[0] == " "):
-      #        box_coords = box_coords[1:]
-
-      #box_coords = box_coords.replace("   ", " ")
-      #box_coords = box_coords.replace("  ", " ")
-      
-      #box_coords = re.sub(r"\.\d+", "", box_coords)
-       
-
-      #print(box_coords)
-      #print(scores)
-
-      #line =  line +  str(scores[0]) + " " + str(box_coords)+ "\n"
-      #print(box_coords)
-      #print(classes)
-      
-      
-      
-            
-      #vis_util.visualize_boxes_and_labels_on_image_array(
-      #    image_np,
-      #    np.squeeze(boxes),
-      #    np.squeeze(classes).astype(np.int32),
-      #    np.squeeze(scores),
-      #    category_index,
-      #    use_normalized_coordinates=True,
-      #    line_thickness=3)
-      #plt.figure(figsize=IMAGE_SIZE)
-      #plt.imshow(image_np)
-      #plt.show()
-
 
 
 
