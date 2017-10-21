@@ -27,6 +27,8 @@ flags.DEFINE_string('model_dir', '',
                     'Path to model dir.')
 flags.DEFINE_string('label_file', '',
                     'Path to label file.')
+flags.DEFINE_string('output_file', '',
+                    'Path to output file.')
 FLAGS = flags.FLAGS
 
 MODEL_NAME = FLAGS.model_dir
@@ -125,7 +127,7 @@ with detection_graph.as_default():
                       + str(int(o[0][1]*im_width)) + ' '\
                       + str(int(o[0][2]*im_height)) + ' '\
                       + str(int(o[0][3]*im_width)) + ' \n'
-                with open('output.txt','a') as f:
+                with open('%s.txt'%FLAGS.output_file,'a') as f:
                     f.write(txt)
 
             print 'Img: %s %d/%d time: %s' % (image_path[-16:], idx, len(TEST_IMAGE_PATHS), time.time() - start_time)
